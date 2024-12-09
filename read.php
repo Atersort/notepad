@@ -13,6 +13,7 @@ function view_note($dsn, $username, $password)
 }
 
 $result = view_note($dsn, $username, $password);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,7 +48,6 @@ $result = view_note($dsn, $username, $password);
 </header>
 <main>
     <section class="container">
-        <form action="" method="post">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Заголовок</label>
                 <input type="text" class="form-control" value="<?= $result['title'] ?>" id="exampleFormControlInput1"
@@ -59,10 +59,9 @@ $result = view_note($dsn, $username, $password);
                           rows="3"><?= $result['content'] ?></textarea>
             </div>
             <div class="mt-2">
-                <button value="save" type="submit" class="btn btn-success">Сохранить</button>
-                <button valut="delete" type="submit" class="btn btn-danger">Удалить</button>
+                <a href="update.php?id=<?= $result['id']?>" class="btn btn-success">Сохранить</a>
+                <a href="delete.php?id=<?= $result['id']?>" class="btn btn-danger">Удалить</a>
             </div>
-        </form>
     </section>
 </main>
 

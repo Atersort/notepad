@@ -56,6 +56,8 @@ $result = get_all_tasks($dsn, $username, $password);
                 <h5 class="card-title"><?= $note['title'] ?></h5>
                 <p class="card-text"><?= $note['content'] ?></p>
                 <a href="/read.php?id=<?= $note['id']?>" class="btn btn-primary">Посмотреть</a>
+                <a href="delete.php?id=<?= $note['id']?>" class="btn btn-danger">Удалить</a>
+
             </div>
         </div>
         <?php endforeach;?>
