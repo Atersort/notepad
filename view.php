@@ -38,7 +38,7 @@ $result = view_note($dsn, $username, $password);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Главная</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/create.php">+ Создать</a>
@@ -59,8 +59,8 @@ $result = view_note($dsn, $username, $password);
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"><?= $result['content']?></textarea>
         </div>
         <div class="mt-2">
-            <button type="button" class="btn btn-success">Сохранить</button>
-            <button type="button" class="btn btn-danger">Удалить</button>
+            <a href="update.php?id=<?= $result['id'] ?>" type="button" class="btn btn-success">Сохранить</a>
+            <a href="delete.php?id=<?= $result['id'] ?>" type="button" class="btn btn-danger">Удалить</a>
 
         </div>
     </section>
