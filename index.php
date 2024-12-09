@@ -33,16 +33,13 @@ $result = get_all_tasks($dsn, $username, $password);
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Панель навигации</a>
+            <a class="navbar-brand" href="index.php">Главная</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Главная</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/create.php">+ Создать</a>
                     </li>
@@ -58,7 +55,7 @@ $result = get_all_tasks($dsn, $username, $password);
             <div class="card-body">
                 <h5 class="card-title"><?= $note['title'] ?></h5>
                 <p class="card-text"><?= $note['content'] ?></p>
-                <a href="/view.php?id=<?= $note['id']?>" class="btn btn-primary">Посмотреть</a>
+                <a href="/read.php?id=<?= $note['id']?>" class="btn btn-primary">Посмотреть</a>
             </div>
         </div>
         <?php endforeach;?>
