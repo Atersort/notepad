@@ -59,9 +59,8 @@ $result = view_note($dsn, $username, $password);
                           rows="3"><?= $result['content'] ?></textarea>
             </div>
             <div class="mt-2">
-                <a href="update.php?id=<?= $result['id'] ?>" type="button" class="btn btn-success">Сохранить</a>
-                <a href="delete.php?id=<?= $result['id'] ?>" type="button" class="btn btn-danger">Удалить</a>
-
+                <button value="save" type="submit" class="btn btn-success">Сохранить</button>
+                <button valut="delete" type="submit" class="btn btn-danger">Удалить</button>
             </div>
         </form>
     </section>
