@@ -44,7 +44,7 @@ $result = get_all_tasks($dsn, $username, $password);
                         <a class="nav-link active" aria-current="page" href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">+ Создать</a>
+                        <a class="nav-link" href="/create.php">+ Создать</a>
                     </li>
                 </ul>
             </div>
@@ -54,11 +54,11 @@ $result = get_all_tasks($dsn, $username, $password);
 <main>
     <section class="container">
         <?php foreach ($result as $note) :?>
-        <div class="card d-flex flex-row mt-5" style="width: 18rem;">
+        <div class="card d-flex mt-5"">
             <div class="card-body">
                 <h5 class="card-title"><?= $note['title'] ?></h5>
                 <p class="card-text"><?= $note['content'] ?></p>
-                <a href="/" class="btn btn-primary">Посмотреть</a>
+                <a href="/view.php?id=<?= $note['id']?>" class="btn btn-primary">Посмотреть</a>
             </div>
         </div>
         <?php endforeach;?>
