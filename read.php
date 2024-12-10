@@ -48,20 +48,25 @@ $result = view_note($dsn, $username, $password);
 </header>
 <main>
     <section class="container">
+        <form action="update.php" method="post">
+            <input name="id" value="<?= $_GET['id'] ?>" type="hidden">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Заголовок</label>
-                <input type="text" class="form-control" value="<?= $result['title'] ?>" id="exampleFormControlInput1"
+                <input type="text" name="title" class="form-control" value="<?= $result['title'] ?>" id="exampleFormControlInput1"
                        placeholder="Заголовок">
             </div>
+
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Текст</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1"
+                <textarea name="content" class="form-control" id="exampleFormControlTextarea1"
                           rows="3"><?= $result['content'] ?></textarea>
             </div>
             <div class="mt-2">
-                <a href="update.php?id=<?= $result['id']?>" class="btn btn-success">Сохранить</a>
-                <a href="delete.php?id=<?= $result['id']?>" class="btn btn-danger">Удалить</a>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+
+                <a href="delete.php?id=<?= $result['id'] ?>" class="btn btn-danger">Удалить</a>
             </div>
+        </form>
     </section>
 </main>
 
