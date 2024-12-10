@@ -3,19 +3,15 @@ $dsn = "mysql:host=MySQL-8.2;dbname=notepad";
 $username = "root";
 $password = "";
 
+include_once "QueryBilder.php";
+
 $title = $_POST['title'] ?? 0;
 $content = $_POST['content'] ?? 0;
 
 if (!empty($title && $content)) {
-    function create_note($dsn, $username, $password) {
-        global $title, $content;
-        $pdo = new PDO($dsn, $username, $password);
-        $sql = "INSERT INTO note (title, content) VALUES (:title, :content)";
-        $statement = $pdo->prepare($sql);
-        $statement->execute(["title" => $title, "content" => $content]);
-        return $statement;
-    }
-    $result = create_note($dsn, $username, $password);
+
+    $query_builder = new QueryBuilder($dsn, $username, $password);
+    $result = $query_builder->create_note();
 
     header("Location: index.php");
 }

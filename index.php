@@ -1,12 +1,11 @@
 <?php
-
 $dsn = "mysql:host=MySQL-8.2;dbname=notepad";
-$username= "root";
+$username = "root";
 $password = "";
 
 include_once "QueryBilder.php";
-$query_builder = new QueryBilder($pdo);
-$result = $query_builder->get_all_tasks($dsn, $username, $password);
+$query_builder = new QueryBuilder($dsn, $username, $password);
+$result = $query_builder->get_all_tasks();
 
 
 ?>

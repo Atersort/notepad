@@ -2,17 +2,11 @@
 $dsn = "mysql:host=MySQL-8.2;dbname=notepad";
 $username = "root";
 $password = "";
-function view_note($dsn, $username, $password)
-{
-    $pdo = new PDO($dsn, $username, $password);
-    $sql = "SELECT * FROM note WHERE id=?";
-    $statement = $pdo->prepare($sql);
-    $statement->execute([$_GET['id']]);
-    return $statement->fetch();
 
-}
+require_once "QueryBilder.php";
 
-$result = view_note($dsn, $username, $password);
+$query_builder = new QueryBuilder($dsn, $username, $password);
+$result = $query_builder->view_note();
 
 ?>
 <!doctype html>

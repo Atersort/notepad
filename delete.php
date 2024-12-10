@@ -4,14 +4,10 @@ $dsn = "mysql:host=MySQL-8.2;dbname=notepad";
 $username = "root";
 $password = "";
 
-function delete_note($dsn, $username, $password)
-{
-    $pdo = new PDO($dsn, $username, $password);
-    $sql = "DELETE FROM note WHERE id=:id";
-    $statement = $pdo->prepare($sql);
-    $statement->execute(['id'=>$_GET['id']]);
+require_once ("QueryBilder.php");
 
-    header("Location: index.php");
-}
+$query_builder = new QueryBuilder($dsn, $username, $password);
 
-$result=delete_note($dsn, $username, $password);
+$result=$query_builder->delete_note();
+
+header("Location: index.php");
