@@ -4,18 +4,10 @@ $dsn = "mysql:host=MySQL-8.2;dbname=notepad";
 $username= "root";
 $password = "";
 
-function get_all_tasks($dsn, $username, $password)
-{
-    $pdo = new PDO($dsn, $username, $password);
-    $sql = "SELECT * FROM note";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
+include_once "QueryBilder.php";
+$query_builder = new QueryBilder($pdo);
+$result = $query_builder->get_all_tasks($dsn, $username, $password);
 
-}
-
-$result = get_all_tasks($dsn, $username, $password);
 
 ?>
 <!doctype html>
